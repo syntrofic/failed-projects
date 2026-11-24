@@ -1,0 +1,25 @@
+name: portal-website
+
+# 生产部署：静态站点以 nginx 提供 HTTP，由外围网关终止 TLS。
+# 不在此编排证书、域名或反向代理——那是网关的职责。
+services:
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: ${PORTAL_IMAGE:-portal-website:latest}
+    restart: unless-stopped
+    # 只绑定回环：公网入口必须经网关反向代理，避免绕过 TLS 直连 IP。
+    ports:
+      - "127.0.0.1:${PORTAL_HOST_PORT:-24080}:80"
+    healthcheck:
+      test: ["CMD", "wget", "--quiet", "--spider", "http://127.0.0.1/healthz"]
+      interval: 15s
+      timeout: 3s
+      retries: 3
+      start_period: 5s
+    logging:
+      driver: json-file
+      options:
+        max-size: "10m"
+        max-file: "3"
