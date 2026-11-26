@@ -1,0 +1,5 @@
+node_modules/
+frontend/dist/
+frontend/.prerender/
+backend/dist/
+.DS_Store

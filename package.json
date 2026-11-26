@@ -1,0 +1,34 @@
+{
+  "name": "syntrofic-website",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "packageManager": "pnpm@11.25.0",
+  "engines": {
+    "node": ">=22.18.0"
+  },
+  "scripts": {
+    "dev": "vite frontend --host 127.0.0.1",
+    "preview": "vite preview frontend --host 127.0.0.1",
+    "typecheck": "tsc -p frontend/tsconfig.json && tsc -p backend/tsconfig.json --noEmit",
+    "build": "pnpm run build:frontend && pnpm run build:backend",
+    "build:frontend": "vite build frontend && vite build frontend --ssr src/prerender.tsx --outDir .prerender && node frontend/.prerender/prerender.js",
+    "dev:backend": "node --watch backend/src/server.ts",
+    "build:backend": "tsc -p backend/tsconfig.json",
+    "start:backend": "node backend/dist/server.js"
+  },
+  "dependencies": {
+    "@astryxdesign/core": "0.7.17",
+    "@astryxdesign/theme-neutral": "0.7.17",
+    "@stylexjs/stylex": "0.19.2",
+    "react": "19.3.1",
+    "react-dom": "19.3.1"
+  },
+  "devDependencies": {
+    "@types/node": "26.6.6",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "typescript": "5.9.3",
+    "vite": "8.3.8"
+  }
+}

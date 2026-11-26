@@ -1,0 +1,3 @@
+allowBuilds:
+  # The package's postinstall only prints optional setup instructions.
+  '@astryxdesign/core': false

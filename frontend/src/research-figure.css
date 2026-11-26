@@ -1,0 +1,108 @@
+.research-figure {
+  container-type: inline-size;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--spacing-2);
+  inline-size: 100%;
+  min-inline-size: 0;
+  margin: 0;
+}
+
+.research-figure-caption,
+.research-figure-title {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--spacing-2);
+}
+
+.research-figure-caption {
+  min-block-size: var(--spacing-8);
+  justify-content: space-between;
+}
+
+.research-figure-visual {
+  position: relative;
+  inline-size: 100%;
+  min-inline-size: 0;
+  min-block-size: 13.5rem;
+  aspect-ratio: 1.65;
+}
+
+.research-figure-poster,
+.research-figure-plot {
+  position: absolute;
+  inset: 0;
+  display: block;
+  inline-size: 100%;
+  block-size: 100%;
+}
+
+.research-figure-poster {
+  object-fit: contain;
+}
+
+.research-figure-plot {
+  visibility: hidden;
+  color: var(--color-text-secondary);
+  font-family: var(--font-family-body);
+}
+
+.research-figure-playback {
+  visibility: hidden;
+}
+
+.research-figure[data-ready] .research-figure-poster {
+  visibility: hidden;
+}
+
+.research-figure[data-ready] :is(.research-figure-plot, .research-figure-playback) {
+  visibility: visible;
+}
+
+.research-figure-legend {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--spacing-2) var(--spacing-4);
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.research-figure-legend li {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-2);
+}
+
+.research-figure-swatch {
+  inline-size: var(--spacing-5);
+  block-size: 2px;
+  background: currentColor;
+}
+
+.research-figure-legend li:nth-child(2) .research-figure-swatch {
+  background: repeating-linear-gradient(to right, currentColor 0 7px, transparent 7px 10px);
+}
+
+.research-figure-legend li:nth-child(3) .research-figure-swatch {
+  background: repeating-linear-gradient(to right, currentColor 0 2px, transparent 2px 5px);
+}
+
+.research-figure-legend li:nth-child(4) .research-figure-swatch {
+  background: repeating-linear-gradient(to right, currentColor 0 8px, transparent 8px 11px, currentColor 11px 13px, transparent 13px 16px);
+}
+
+@container (max-width: 19rem) {
+  .research-figure-legend {
+    display: grid;
+    grid-template-columns: repeat(2, max-content);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .research-figure-caption .research-figure-playback {
+    display: none;
+  }
+}
