@@ -6,6 +6,7 @@
 | --- | --- | --- |
 | [syntrofic-ui](https://github.com/syntrofic/failed-projects/tree/syntrofic-ui) | Vue 3 与 NativeScript-Vue 的组件库、文档和示例。 | `4d9e16f0fb08` |
 | [portal-website](https://github.com/syntrofic/failed-projects/tree/portal-website) | 曾用于 www.syntrofic.com 的 Syntrofic 官网源码。 | `836f031681fb` |
+| [syntrofic-website](https://github.com/syntrofic/failed-projects/tree/syntrofic-website) | 新版官网原型，含公益服务、开源项目、Blog 和产品。 | `46aca9a45b25` |
 
 分支中的 `ARCHIVE.md` 记录快照的来源。原仓库保留 Git 提交历史。这些项目已经停止维护和发布。
 
